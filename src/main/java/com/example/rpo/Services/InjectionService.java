@@ -20,6 +20,4 @@ public class InjectionService {
     public Comment extractComment(Long idComment){
         return commentRepository.findById(idComment).get();
     }
-
-
 }

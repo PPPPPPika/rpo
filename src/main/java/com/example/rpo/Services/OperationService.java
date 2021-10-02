@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 @Service("operationService")
 public class OperationService implements OperationsInterface {
-    private OperationsInterface addOperation;
-    private OperationsInterface deleteOperation;
-    private OperationsInterface editOperation;
+    private final OperationsInterface addOperation;
+    private final OperationsInterface deleteOperation;
+    private final OperationsInterface editOperation;
 
     @Autowired
     public OperationService(@Qualifier("addOperation") OperationsInterface addOperation,
@@ -27,8 +27,8 @@ public class OperationService implements OperationsInterface {
     }
 
     @Override
-    public void deleteComment() {
-        deleteOperation.deleteComment();
+    public void deleteComment(Long id, String currentUser) {
+        deleteOperation.deleteComment(id, currentUser);
     }
 
     @Override

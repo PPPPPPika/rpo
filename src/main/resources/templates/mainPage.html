@@ -15,8 +15,18 @@
                 <p th:text="'Author: ' + ${com.getAuthor().getName()}" ></p>
                 <textarea id="textarea" style="resize: none;" rows="15" cols="50" th:text="${com.getText()}"></textarea>
                 <nav style="margin-top: 5px">
-                    <li style="display: inline; margin-right: 10px;  margin-left: 10px;"><a href="">Delete</a></li>
-                    <li style="display: inline; margin-right: 10px;  margin-left: 10px;"><a th:href="@{/rpo/comment/edit/{id}(id=${com.getId()})}">Edit</a></li>
+                    <!--<li style="display: inline; margin-right: 10px;  margin-left: 10px;"><a href="">Delete</a></li>-->
+                    <!--<li style="display: inline; margin-right: 10px;  margin-left: 10px;"><a th:href="@{/rpo/comment/edit/{id}(id=${com.getId()})}">Edit</a></li>-->
+                    <li style="display: inline; margin-right: 10px;  margin-left: 10px;">
+                        <form th:action="@{/rpo/comment/edit/{id}(id=${com.getId()})}" th:method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
+                    </li>
+                    <li style="display: inline; margin-right: 10px;  margin-left: 10px;">
+                        <form th:action="@{/rpo/comment/{id}(id=${com.getId()})}" th:method="DELETE">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
                 </nav>
                 <hr width="400" style="margin: 5px auto 0 0;">
             </div>

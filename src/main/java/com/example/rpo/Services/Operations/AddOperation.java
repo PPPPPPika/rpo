@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Component("addOperation")
 public class AddOperation implements OperationsInterface {
-    private CommentRepository commentRepository;
-    private UserRepository userRepository;
+    private final CommentRepository commentRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public AddOperation(CommentRepository commentRepository, UserRepository userRepository) {

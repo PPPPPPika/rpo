@@ -63,4 +63,12 @@ public class MainController {
         operationService.editComment(id, currentUser, comment.getText());
         return "redirect:/rpo/mainPage";
     }
+
+    @DeleteMapping("/comment/{id}")
+    public String deleteComment(@PathVariable("id") Long id){
+        String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
+        operationService.deleteComment(id, currentUser);
+        return "redirect:/rpo/mainPage";
+    }
+
 }
