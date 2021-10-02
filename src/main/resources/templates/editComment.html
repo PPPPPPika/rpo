@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+  <body>
+    <div>
+        <form th:action="@{/rpo/comment/{id}(id=${comment.getId()})}" th:method="PATCH" th:object="${editComment}">
+            <h3 th:text="'Comment №' + ${comment.getId()}"></h3>
+            <p th:text="'Author: ' + ${comment.getAuthor().getName()}"></p>
+            <textarea style="resize: none;" rows="15" cols="50" th:text="${comment.getText()}"></textarea>
+            <br>
+            <!--<label for="text">New text</label>-->
+            <!--<input style="width:300px;height:200px;" id="text" type="text" th:field="*{text}">-->
+            <textarea style="resize: none;" rows="15" cols="50" th:field="*{text}"></textarea>
+            <br>
+            <button style="margin-top: 5px" type="submit">Enter</button>
+        </form>
+    </div>
+  </body>
+</html>

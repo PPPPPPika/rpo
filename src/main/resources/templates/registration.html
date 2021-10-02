@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <div class="">
+      <form class="" th:action="@{/rpo/registration}" th:method="POST" th:object="${user}">
+        <h3>Registration</h3>
+        <table>
+          <tr>
+            <td><label for="name">Name: </label></td>
+            <td><input type="text" id="name" th:field="*{name}"></td>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+          </tr>
+          <tr>
+            <td><label for="password">Password: </label></td>
+            <td><input type="password" id="password" th:field="*{password}"></td>
+            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+          </tr>
+        </table>
+        <button class="" type="submit">Enter</button>
+      </form>
+      <div th:if="${isDuplicate} == true">This user is exist!</div>
+      <br/>
+      <a href="/rpo/login">LogIn</a>
+    </div>
+</body>
+</html>

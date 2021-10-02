@@ -1,0 +1,22 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Create new comment</title>
+</head>
+    <body>
+        <div class="">
+            <form class="" th:action="@{/rpo/comment}" th:method="POST" th:object="${comment}">
+                <table>
+                    <tr>
+                        <td><label for="text">Write text: </label></td>
+                        <td><textarea style="resize: none;" rows="15" cols="50" id="text" th:field="*{text}"></textarea></td>
+                        <div th:if="${#fields.hasErrors('text')}" th:errors="*{text}">Error</div>
+                    </tr>
+                </table>
+                <button class="" type="submit">Enter</button>
+            </form>
+        </div>
+    <br>
+    <p><a href="/rpo/mainPage">Main page</a></p>
+    </body>
+</html>
